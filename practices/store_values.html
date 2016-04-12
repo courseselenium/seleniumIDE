@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://demo.icebergcommerce.com/" />
+<title>store_values</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">store_values</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=a.level-top.over &gt; span</td>
+	<td></td>
+</tr>
+<!--Storing the price of the first item & adding to cart-->
+<tr>
+	<td>storeText</td>
+	<td>xpath=(//span[@class='regular-price'])[1]</td>
+	<td>price1</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>storedVars['price1'].substring(1,storedVars['price1'].length) </td>
+	<td>price1</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>precio 1er producto ${price1}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//button[@type='button'])[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=li.success-msg</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=button.button.btn-continue</td>
+	<td></td>
+</tr>
+<!--Storing the price of the second item & adding to cart-->
+<tr>
+	<td>storeText</td>
+	<td>xpath=(//span[@class='regular-price'])[2]</td>
+	<td>price2</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>storedVars['price2'].substring(1,storedVars['price2'].length) </td>
+	<td>price2</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>precio 2º producto ${price2}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>xpath=(//button[@type='button'])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>css=li.success-msg</td>
+	<td></td>
+</tr>
+<!--Checking that the subtotal displayed is equals to the sum of the item1 and item2 prices collected-->
+<tr>
+	<td>storeEval</td>
+	<td>parseFloat(storedVars['price1']) + parseFloat(storedVars['price2'])</td>
+	<td>subtotal</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>subtotal = ${subtotal}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>css=td.a-right &gt; span.price</td>
+	<td>subtotal_pantalla</td>
+</tr>
+<tr>
+	<td>storeEval</td>
+	<td>storedVars['subtotal_pantalla'].substring(1,storedVars['subtotal_pantalla'].length) </td>
+	<td>subtotal_pantalla</td>
+</tr>
+<tr>
+	<td>assertEval</td>
+	<td>parseFloat(storedVars['subtotal_pantalla'])==parseFloat(storedVars['subtotal'])</td>
+	<td>true</td>
+</tr>
+<!--cleaning the cart-->
+<tr>
+	<td>clickAndWait</td>
+	<td>css=a.top-link-cart</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>id=empty_cart_button</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=here</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

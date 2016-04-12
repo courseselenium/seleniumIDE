@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="https://www.google.es" />
+<title>store_ejemplo2</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">store_ejemplo2</td></tr>
+</thead><tbody>
+<tr>
+	<td>store</td>
+	<td>Buscar en Google</td>
+	<td>textoRequerid</td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>name=btnK</td>
+	<td>textoBoton</td>
+</tr>
+<tr>
+	<td>verifyEval</td>
+	<td>storedVars['textoBoton']==storedVars['texto']</td>
+	<td>resultado</td>
+</tr>
+<tr>
+	<td>assertEval</td>
+	<td>storedVars['textoBoton']==storedVars['texto']</td>
+	<td>resultado</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>${resultado}</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>
