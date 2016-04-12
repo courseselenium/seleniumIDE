@@ -9,4 +9,4 @@ Resources:
 - http://docs.seleniumhq.org/docs/02_selenium_ide.jsp
 
 
-
+Jose Blesa
